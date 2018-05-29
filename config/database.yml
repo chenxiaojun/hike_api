@@ -15,21 +15,21 @@ default: &default
   encoding: utf8mb4
   collation: utf8mb4_unicode_ci
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV['KK_DATABASE_HOST'] || 'localhost' %>
-  username: <%= ENV['KK_DATABASE_USERNAME'] %>
-  password: <%= ENV['KK_DATABASE_PASSWORD'] %>
-  socket:   <%= ENV['KK_DATABASE_SOCKET'] || '/tmp/mysql.sock' %>
+  host: <%= ENV['HIKE_DATABASE_HOST'] || 'localhost' %>
+  username: <%= ENV['HIKE_DATABASE_USERNAME'] %>
+  password: <%= ENV['HIKE_DATABASE_PASSWORD'] %>
+  socket:   <%= ENV['HIKE_DATABASE_SOCKET'] || '/tmp/mysql.sock' %>
 
 development:
   <<: *default
-  database: <%= ENV['KK_DATABASE'] || 'kkapp_dev' %>
+  database: <%= ENV['HIKE_DATABASE'] || 'hike_dev' %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: <%= ENV['KK_DATABASE_TEST'] || 'kkapp_test' %>
+  database: <%= ENV['HIKE_DATABASE_TEST'] || 'hike_test' %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -53,4 +53,4 @@ test:
 production:
   <<: *default
   pool: 10
-  database: <%= ENV['KK_DATABASE_PRO'] || 'kkapp_production' %>
+  database: <%= ENV['HIKE_DATABASE_PRO'] || 'hike_production' %>

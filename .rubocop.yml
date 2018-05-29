@@ -13,7 +13,7 @@ Rails:
   Enabled: true
 
 Metrics/LineLength:
-  Max: 130
+  Max: 150
 
 Style/AsciiComments:
   Enabled: false
@@ -25,7 +25,7 @@ Metrics/AbcSize:
   Enabled: false
 
 Metrics/MethodLength:
-  Max: 15
+  Max: 16
 
 Documentation:
     Enabled: false
@@ -46,4 +46,22 @@ Style/RescueStandardError:
   Enabled: false
 
 Rails/SkipsModelValidations:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Layout/TrailingWhitespace:
   Enabled: false

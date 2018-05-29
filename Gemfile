@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 gem 'dotenv-rails'
+gem 'redis'
 gem 'redis-rails'
 gem 'jwt'
 gem 'second_level_cache', '~> 2.3.0'
