@@ -25,8 +25,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
     add_index :users, [:nick_name]
     add_index :users, [:email]
     add_index :users, [:mobile]
-    add_index :users, [:silenced]
-    add_index :users, [:blocked]
+    add_index :users, [:blocked_at]
 
     create_table :user_extras do |t|
       t.references :user
@@ -40,7 +39,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.boolean :default,  default: false,             comment: '是否默认'
       t.timestamps
     end
-    add_index :user_extras, [:deleted]
+    add_index :user_extras, [:deleted_at]
     add_index :user_extras, [:status]
 
     create_table :weixin_users do |t|
