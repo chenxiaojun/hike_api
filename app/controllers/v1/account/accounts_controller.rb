@@ -25,8 +25,9 @@ module V1
         params.permit(:type, :email, :mobile, :password, :vcode)
       end
 
+      # 只允许手机号注册，如果想开放邮箱注册，这里添加一个email就可以了
       def check_params
-        requires! :type, values: %w[mobile email]
+        requires! :type, values: %w[mobile]
       end
     end
   end
