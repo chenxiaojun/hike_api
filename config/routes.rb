@@ -21,6 +21,13 @@ Rails.application.routes.draw do
         get :profile
         get :topics
       end
+      resources :followers, only: [:index, :destroy]
+      resources :following, only: [:index, :create, :destroy] do
+        get :uids, on: :collection
+      end
+      resources :likes, only: [:index, :create] do
+        post :cancel, on: :collection
+      end
     end
 
     # 说说或长帖
