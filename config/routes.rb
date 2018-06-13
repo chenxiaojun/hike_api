@@ -15,5 +15,21 @@ Rails.application.routes.draw do
         resources :bind_account, only: [:create]
       end
     end
+
+    resources :users, module: :users, only: [] do
+      member do
+        get :profile
+        get :topics
+      end
+    end
+
+    # 说说或长帖
+    resources :topics, only: [:index, :show, :create, :destroy] do
+      post :image, on: :collection
+      get :essence, on: :collection
+    end
+
+    # 获取位置服务
+    resources :locations, only: [:index]
   end
 end

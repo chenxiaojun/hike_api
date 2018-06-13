@@ -31,10 +31,19 @@ gem 'jwt'
 gem 'second_level_cache', '~> 2.3.0'
 gem 'resque', github: 'resque/resque'
 
+#分页
+gem 'kaminari'
+
 # 图片处理
 gem 'carrierwave'
 gem 'carrierwave-upyun'
 gem 'mini_magick'
+
+# 附近的人
+gem 'geocoder'
+
+gem 'text'
+gem 'rest-client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
