@@ -1,6 +1,6 @@
 server '115.159.121.224', user: 'ricky', roles: %w{app db cache resque_worker}
 
-set :workers, {send_email_sms: 1, send_mobile_sms: 1}
+set :workers, {send_email_sms_jobs: 1, send_mobile_sms_jobs: 1}
 
 set :ssh_options, {
     user: 'ricky', # overrides user setting above
