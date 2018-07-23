@@ -36,6 +36,11 @@ Rails.application.routes.draw do
       get :essence, on: :collection
     end
 
+    # 活动
+    resources :activities, only: [:index, :show, :create, :destroy] do
+      post :image, on: :collection
+    end
+
     # 获取位置服务
     resources :locations, only: [:index]
   end

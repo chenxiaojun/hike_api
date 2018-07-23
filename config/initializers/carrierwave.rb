@@ -2,7 +2,7 @@ CarrierWave.configure do |config|
   if Rails.env.test?
     config.storage = :file
   else
-
+  config.enable_processing = false
   config.storage = :upyun
   config.upyun_username    = ENV['UPYUN_USERNAME']
   config.upyun_password    = ENV['UPYUN_PASSWD']
