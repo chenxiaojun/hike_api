@@ -1,8 +1,6 @@
 json.id                   activity.id
 json.cover_link           activity.cover_link
 json.name                 activity.name
-json.begin_time           activity.begin_time.to_i
-json.end_time             activity.end_time.to_i
 json.departure_city       activity.departure_city
 json.destination_province activity.destination_province
 json.destination          activity.destination
