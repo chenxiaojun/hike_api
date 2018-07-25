@@ -10,4 +10,5 @@ json.start_date           activity.start_date
 json.end_date             activity.end_date
 json.charge_type          activity.charge_type.to_s
 json.description          activity.description.to_s
+json.page_views           activity.page_views
 json.created_at           activity.created_at.to_i

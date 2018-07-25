@@ -1,12 +1,24 @@
 module V1
   class ActivitiesController < ApplicationController
     include UserAuthorize
-    before_action :login_required, only: [:create, :image]
+    before_action :login_required, except: [:index, :search, :show]
 
     def index
       departure_city = params[:departure_city].presence
-      @activities = Activity.user_visible.page(params[:page]).per(params[:page_size])
+      @activities = Activity.user_visible.order(created_at: :desc).page(params[:page]).per(params[:page_size])
                             .yield_self { |it| departure_city ? it.where(departure_city: departure_city) : it  }
+    end
+
+    def show
+      @activity = Activity.user_visible.find(params[:id])
+      @activity.increment_page_views
+    end
+
+    def search
+      keyword = params[:keyword]
+      @activities = Activity.user_visible.order(created_at: :desc).page(params[:page]).per(params[:page_size])
+                   .yield_self { |it| keyword ? it.search_keyword(keyword) : it }
+      render :index
     end
 
     def create
@@ -20,6 +32,11 @@ module V1
         raise_error 'file_format_error'
       end
       raise_error 'file_upload_error' unless @image.save
+    end
+
+    def destroy
+      @current_user.activities.find(params[:id]).destroy
+      render_api_success
     end
 
     private

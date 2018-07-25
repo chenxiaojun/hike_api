@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       member do
         get :profile
         get :topics
+        get :activities
       end
       resources :followers, only: [:index, :destroy]
       resources :following, only: [:index, :create, :destroy] do
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
     # 活动
     resources :activities, only: [:index, :show, :create, :destroy] do
       post :image, on: :collection
+      get :search, on: :collection
     end
 
     # 获取位置服务
