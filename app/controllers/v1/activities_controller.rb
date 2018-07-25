@@ -44,8 +44,6 @@ module V1
     def user_params
       params.permit(:cover_link,
                     :name,
-                    :begin_time,
-                    :end_time,
                     :departure_city,
                     :destination_province,
                     :destination,
@@ -55,7 +53,7 @@ module V1
     end
 
     def check_params
-      required_params = %w[cover_link name begin_time end_time departure_city destination_province destination start_date end_date charge_type]
+      required_params = %w[cover_link name departure_city destination_province destination start_date end_date charge_type]
       required_params.each { |r| requires! r.to_sym }
       optional! :charge_type, values: %w[free]
     end
