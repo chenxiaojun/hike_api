@@ -12,6 +12,11 @@ module V1
         render 'v1/topics/index'
       end
 
+      def activities
+        @activities = @target_user.activities.user_visible.order(created_at: :desc).page(params[:page]).per(params[:page_size])
+        render 'v1/activities/index'
+      end
+
       private
 
       def target_user
