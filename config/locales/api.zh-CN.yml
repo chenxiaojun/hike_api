@@ -1,0 +1,7 @@
+"zh-CN":
+  activity_status:
+    canceled: '已取消'
+    overload: '已满员'
+    applying: '报名中'
+    finished: '已结束'
+    doing: '进行中'

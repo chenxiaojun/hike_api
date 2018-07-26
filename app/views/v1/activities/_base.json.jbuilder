@@ -10,5 +10,6 @@ json.start_date           activity.start_date
 json.end_date             activity.end_date
 json.mem_limit            activity.mem_limit
 json.description          activity.description.to_s
+json.status               I18n.t("activity_status.#{activity.activity_status}")
 json.page_views           activity.page_views
 json.created_at           activity.created_at.to_i
