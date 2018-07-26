@@ -1,12 +1,14 @@
 json.id                   activity.id
 json.cover_link           activity.cover_link
 json.name                 activity.name
+json.departure_province   activity.departure_province
 json.departure_city       activity.departure_city
 json.destination_province activity.destination_province
+json.destination_city     activity.destination_city
 json.destination          activity.destination
 json.start_date           activity.start_date
 json.end_date             activity.end_date
-json.charge_type          activity.charge_type.to_s
+json.mem_limit            activity.mem_limit
 json.description          activity.description.to_s
 json.page_views           activity.page_views
 json.created_at           activity.created_at.to_i
