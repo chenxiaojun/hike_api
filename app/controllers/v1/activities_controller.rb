@@ -26,6 +26,13 @@ module V1
       @activity = Activity.create(user_params.merge(user: @current_user))
     end
 
+    def update
+      check_params
+      @activity = @current_user.activities.find(params[:id])
+      @activity.update(user_params)
+      render :create
+    end
+
     def image
       @image = ActivityImage.new(image: params[:image])
       if @image.image.blank? || @image.image.path.blank? || @image.image_integrity_error.present?
@@ -51,13 +58,13 @@ module V1
                     :destination,
                     :start_date,
                     :end_date,
-                    :mem_limit)
+                    :mem_limit,
+                    :description)
     end
 
     def check_params
       required_params = %w[cover_link name departure_province departure_city destination_province destination_city destination start_date end_date mem_limit]
       required_params.each { |r| requires! r.to_sym }
-      optional! :charge_type, values: %w[free]
     end
   end
 end

@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     end
 
     # 活动
-    resources :activities, only: [:index, :show, :create, :destroy] do
+    resources :activities, only: [:index, :show, :create, :update, :destroy] do
       post :image, on: :collection
       get :search, on: :collection
     end
