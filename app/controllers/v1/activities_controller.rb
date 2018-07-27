@@ -72,7 +72,7 @@ module V1
     def check_params
       required_params = %w[cover_link name departure_province departure_city destination_province destination_city destination begin_time end_time mem_limit]
       required_params.each { |r| requires! r.to_sym }
-      raise_error 'start_day_greater' if params[:start_date] > params[:end_date]
+      raise_error 'start_day_greater' if params[:begin_time] > params[:end_time]
     end
   end
 end

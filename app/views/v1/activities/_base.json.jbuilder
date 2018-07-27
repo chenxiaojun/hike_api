@@ -6,8 +6,8 @@ json.departure_city       activity.departure_city
 json.destination_province activity.destination_province
 json.destination_city     activity.destination_city
 json.destination          activity.destination
-json.start_date           activity.begin_time.to_i
-json.end_date             activity.end_time.to_i
+json.begin_time           activity.begin_time.to_i
+json.end_time             activity.end_time.to_i
 json.mem_limit            activity.mem_limit
 json.description          activity.description.to_s
 json.status               I18n.t("activity_status.#{activity.activity_status}")
