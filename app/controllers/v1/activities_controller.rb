@@ -33,6 +33,13 @@ module V1
       render :create
     end
 
+    def cancel
+      @activity = @current_user.activities.find(params[:id])
+      raise_error 'cannot_cancel' unless @activity.allow_cancel?
+      @activity.update(canceled: true)
+      render_api_success
+    end
+
     def image
       @image = ActivityImage.new(image: params[:image])
       if @image.image.blank? || @image.image.path.blank? || @image.image_integrity_error.present?
@@ -56,16 +63,16 @@ module V1
                     :destination_province,
                     :destination_city,
                     :destination,
-                    :start_date,
-                    :end_date,
+                    :begin_time,
+                    :end_time,
                     :mem_limit,
                     :description)
     end
 
     def check_params
-      required_params = %w[cover_link name departure_province departure_city destination_province destination_city destination start_date end_date mem_limit]
+      required_params = %w[cover_link name departure_province departure_city destination_province destination_city destination begin_time end_time mem_limit]
       required_params.each { |r| requires! r.to_sym }
-      raise_error 'start_day_greater' if params[:start_date] > params[:end_date]
+      raise_error 'start_day_greater' if params[:begin_time] > params[:end_time]
     end
   end
 end
