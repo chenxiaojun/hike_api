@@ -33,6 +33,13 @@ module V1
       render :create
     end
 
+    def cancel
+      @activity = @current_user.activities.find(params[:id])
+      raise_error 'cannot_cancel' unless @activity.allow_cancel?
+      @activity.update(canceled: true)
+      render_api_success
+    end
+
     def image
       @image = ActivityImage.new(image: params[:image])
       if @image.image.blank? || @image.image.path.blank? || @image.image_integrity_error.present?

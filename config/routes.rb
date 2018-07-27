@@ -41,6 +41,8 @@ Rails.application.routes.draw do
     resources :activities, only: [:index, :show, :create, :update, :destroy] do
       post :image, on: :collection
       get :search, on: :collection
+      post :cancel, on: :member
+      post :join, on: :member
     end
 
     # 获取位置服务

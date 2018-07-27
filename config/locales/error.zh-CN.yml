@@ -42,5 +42,6 @@
 
     # 活动相关
     start_day_greater: '开始日期不可以大于结束日期'
+    cannot_cancel: '当前状态不可以取消'
 
 
