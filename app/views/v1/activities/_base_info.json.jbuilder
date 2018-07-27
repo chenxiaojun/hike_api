@@ -10,6 +10,7 @@ json.begin_time           activity.begin_time.to_i
 json.end_time             activity.end_time.to_i
 json.mem_limit            activity.mem_limit
 json.join_numbers         activity.join_numbers
+json.description          activity.description.to_s
 json.status               activity.activity_status
 json.status_cn            I18n.t("activity_status.#{activity.activity_status}")
 json.page_views           activity.page_views

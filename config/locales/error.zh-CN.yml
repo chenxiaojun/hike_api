@@ -43,5 +43,7 @@
     # 活动相关
     start_day_greater: '开始日期不可以大于结束日期'
     cannot_cancel: '当前状态不可以取消'
+    cannot_apply: '当前状态不支持报名'
+    already_joined: '已经报名过，请勿重复报名'
 
 

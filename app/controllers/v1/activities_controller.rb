@@ -2,6 +2,7 @@ module V1
   class ActivitiesController < ApplicationController
     include UserAuthorize
     before_action :login_required, except: [:index, :search, :show]
+    before_action :current_user, only: [:show]
 
     def index
       departure_city = params[:departure_city].presence
@@ -24,6 +25,7 @@ module V1
     def create
       check_params
       @activity = Activity.create(user_params.merge(user: @current_user))
+      Services::Activities::Join.call(@current_user, @activity)
     end
 
     def update
@@ -48,10 +50,11 @@ module V1
       raise_error 'file_upload_error' unless @image.save
     end
 
-    def destroy
-      @current_user.activities.find(params[:id]).destroy
-      render_api_success
-    end
+    # 关闭用户删除活动的按钮
+    # def destroy
+    #   @current_user.activities.find(params[:id]).destroy
+    #   render_api_success
+    # end
 
     private
 
