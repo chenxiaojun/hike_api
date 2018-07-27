@@ -42,7 +42,11 @@ Rails.application.routes.draw do
       post :image, on: :collection
       get :search, on: :collection
       post :cancel, on: :member
-      post :join, on: :member
+    end
+
+    resources :activities, module: :activities, only: [] do
+      resources :join, only: [:create] do
+      end
     end
 
     # 获取位置服务
