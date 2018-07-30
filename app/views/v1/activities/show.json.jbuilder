@@ -13,7 +13,7 @@ json.data do
       json.nick_name member.user.nick_name
       json.avatar member.user.avatar.to_s
       json.gender member.user.gender
-      json.apply_time member.user.created_at.to_i
+      json.apply_time member.created_at.to_i
       json.activity_owner member.owner
     end
   end
