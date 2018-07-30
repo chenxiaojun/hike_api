@@ -15,6 +15,11 @@ module V1
         render_api_success
       end
 
+      # 发起人 成员管理
+      def members
+        @members = @activity.activity_joins.order(created_at: :desc)
+      end
+
       private
 
       def user_params
