@@ -24,7 +24,9 @@ module V1
       def update
         @member = @activity.activity_joins.find(params[:id])
         requires! :status, values: %w[passed failed]
+        raise_error 'cannot_change_member_status' if @member.join_status.eql?('passed') # 报名通过的用户不能再次操作
         @member.update(join_status: params[:status], response_message: params[:message])
+        @activity.increment_join_numbers if params[:status].eql?('passed')
         render_api_success
       end
 
