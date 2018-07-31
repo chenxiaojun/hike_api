@@ -15,6 +15,7 @@ module Services
           mobile: @user_params.delete(:mobile) || @user.mobile
         }.merge(@user_params)
         owner? ? create_owner(params) : create_user(params)
+        @activity.increment_apply_numbers
       end
 
       private

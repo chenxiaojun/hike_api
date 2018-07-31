@@ -2,6 +2,7 @@ json.partial! 'common/basic', api_result: ApiResult.success_result
 
 json.data do
   json.array! @members.includes(:user) do |member|
+    json.member_id         member.id
     json.user_id           member.user.user_uuid
     json.nick_name         member.user.nick_name
     json.avatar            member.user.avatar.to_s

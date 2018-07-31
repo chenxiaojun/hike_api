@@ -9,6 +9,7 @@ json.destination          activity.destination
 json.begin_time           activity.begin_time.to_i
 json.end_time             activity.end_time.to_i
 json.mem_limit            activity.mem_limit
+json.apply_numbers        activity.apply_numbers
 json.join_numbers         activity.join_numbers
 json.status               activity.activity_status
 json.status_cn            I18n.t("activity_status.#{activity.activity_status}")

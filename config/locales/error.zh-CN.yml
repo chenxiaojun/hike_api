@@ -45,5 +45,6 @@
     cannot_cancel: '当前状态不可以取消'
     cannot_apply: '当前状态不支持报名'
     already_joined: '已经报名过，请勿重复报名'
+    cannot_change_member_status: '报名申请中的用户才支持此操作'
 
 
