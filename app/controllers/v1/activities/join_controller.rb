@@ -20,8 +20,15 @@ module V1
         @members = @activity.activity_joins.order(created_at: :desc)
       end
 
-      # 通过或拒绝报名成员
+      # 修改报名信息
       def update
+        @member = @activity.activity_joins.find(params[:id])
+        @member.update(user_params.merge(join_status: 'pending'))
+        render_api_success
+      end
+
+      # 通过或拒绝报名成员
+      def change_status
         @member = @activity.activity_joins.find(params[:id])
         requires! :status, values: %w[passed failed]
         raise_error 'cannot_change_member_status' if @member.join_status.eql?('passed') # 报名通过的用户不能再次操作
