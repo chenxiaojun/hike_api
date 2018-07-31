@@ -29,6 +29,8 @@ Rails.application.routes.draw do
       resources :likes, only: [:index, :create] do
         post :cancel, on: :collection
       end
+      resources :login_count, only: [:create]
+      resources :share_count, only: [:create]
     end
 
     # 说说或长帖
