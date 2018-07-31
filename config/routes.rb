@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     resources :activities, module: :activities, only: [] do
       resources :join, only: [:create, :update] do
         get :members, on: :collection
+        post :change_status, on: :member
       end
     end
 
