@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     end
 
     resources :activities, module: :activities, only: [] do
-      resources :join, only: [:create] do
+      resources :join, only: [:create, :update] do
         get :members, on: :collection
       end
     end
