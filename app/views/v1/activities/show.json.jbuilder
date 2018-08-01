@@ -14,6 +14,7 @@ json.data do
       json.avatar member.user.avatar.to_s
       json.gender member.user.gender
       json.apply_time member.created_at.to_i
+      json.join_status member.join_status
       json.activity_owner member.owner
     end
   end
