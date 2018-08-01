@@ -9,13 +9,7 @@ json.data do
 
   json.activity_members do
     json.array! @members.includes(:user) do |member|
-      json.user_id member.user.user_uuid
-      json.nick_name member.user.nick_name
-      json.avatar member.user.avatar.to_s
-      json.gender member.user.gender
-      json.apply_time member.created_at.to_i
-      json.join_status member.join_status
-      json.activity_owner member.owner
+      json.partial! 'v1/activities/member', member: member
     end
   end
   json.current_user_joined @activity.user_joined?(@current_user)
