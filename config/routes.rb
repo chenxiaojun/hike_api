@@ -55,5 +55,6 @@ Rails.application.routes.draw do
 
     # 获取位置服务
     resources :locations, only: [:index]
+    resources :banners, only: [:index]
   end
 end
