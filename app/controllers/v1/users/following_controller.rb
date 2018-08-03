@@ -2,11 +2,12 @@ module V1
   module Users
     class FollowingController < ApplicationController
       include UserAuthorize
-      before_action :user_self_required
+      before_action :user_self_required, except: [:index]
 
       # 获取关注列表
       def index
-        @followings = @current_user.follow_users
+        @target_user = User.find(params[:user_id])
+        @followings = @target_user.follow_users
       end
 
       # 关注某人
