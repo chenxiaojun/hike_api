@@ -2,11 +2,12 @@ module V1
   module Users
     class FollowersController < ApplicationController
       include UserAuthorize
-      before_action :user_self_required
+      before_action :user_self_required, except: [:index]
 
       # 查看用户粉丝列表
       def index
-        @followers = @current_user.follow_by_users
+        @target_user = User.find(params[:user_id])
+        @followers = @target_user.follow_by_users
       end
 
       # 移除粉丝

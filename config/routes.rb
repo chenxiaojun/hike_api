@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       post :image, on: :collection
       get :search, on: :collection
       post :cancel, on: :member
+      post :favorite, on: :member
     end
 
     resources :activities, module: :activities, only: [] do
