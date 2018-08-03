@@ -6,7 +6,7 @@ module V1
 
       # 获取关注列表
       def index
-        @target_user = User.find(params[:user_id])
+        @target_user = User.find_by!(user_uuid: params[:user_id])
         @followings = @target_user.follow_users
       end
 

@@ -6,7 +6,7 @@ module V1
 
       # 查看用户粉丝列表
       def index
-        @target_user = User.find(params[:user_id])
+        @target_user = User.find_by!(user_uuid: params[:user_id])
         @followers = @target_user.follow_by_users
       end
 
