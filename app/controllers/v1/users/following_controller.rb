@@ -6,8 +6,7 @@ module V1
 
       # 获取关注列表
       def index
-        @target_user = User.by_uuid(params[:user_id])
-        raise_error 'record_not_found' if @target_user.blank?
+        @target_user = User.find_by!(user_uuid: params[:user_id])
         @followings = @target_user.follow_users
       end
 
