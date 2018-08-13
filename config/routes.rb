@@ -57,5 +57,11 @@ Rails.application.routes.draw do
     # 获取位置服务
     resources :locations, only: [:index]
     resources :banners, only: [:index]
+
+    # 评论和回复
+    resources :comments, only: [:index, :create, :destroy] do
+      get :replies, on: :member
+    end
+    resources :replies, only: [:create, :destroy]
   end
 end
